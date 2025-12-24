@@ -4,9 +4,10 @@ import Piquora from '../assets/images/piquora.png'
 import GalleryApp from '../assets/images/gallery-app.png'
 import NotesApp from '../assets/images/notes-app.png'
 import { motion } from 'motion/react'
+import SectionHeading from './SectionHeading'
 
-const Projects = () => {
-  const projects = [
+const Projects = ({limit}) => {
+   const projects = [
   {
       title: 'Piquora',
       src: Piquora,
@@ -32,18 +33,18 @@ const Projects = () => {
       href: 'https://github.com/deepaklohana/react-projects/tree/main/13-notes-app',
     },
   ]
+  const visiableProject =limit?projects.slice(0,limit):projects;
+  
   return (
-    <div className='py-10 '>
-        <p className=' text-secondary text-sm md:text-sm pt-4 max-w-lg'>
-            I love building web apps and product that can impact million of lives.
-        </p>
-        <div className="grid grid-cols-1 gap-4 py-2 md:grid-cols-2">
-          {projects.map((project,idx)=>(
+    <div className=' border-y border-neutral-100 shadow-section-inset mx-8 px-4 py-8 '>
+        <SectionHeading delay={0.2} children={'I love building things'}/>
+        <div className="grid grid-cols-1 gap-4 pt-4 py-2 md:grid-cols-3 ">
+          {visiableProject.map((project,idx)=>(
             <motion.div
             initial={{opacity:0,filter:'blur(10px)',y:10}}
             whileInView={{opacity:1,filter:'blur(0px)',y:0}}
             transition={{duration:0.3,delay:idx*0.1,ease:'easeInOut'}}
-            className='group relative mb-4'
+            className='group relative '
             key={idx}>
               <a href={project.href} target="_blank" rel="noopener noreferrer">
                 {/* <h2 className='text-black dark:text-white  absolute left-2 bottom-0'>{project.title}</h2> */}

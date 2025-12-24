@@ -1,20 +1,43 @@
-import React from 'react'
-import Container from '../components/container'
-import Navbar from '../components/navbar/Navbar'
-import Projects from '../components/Projects'
-import LandingBlogCard from '../components/LandingBlogCard'
+import React from 'react';
+import Container from '../components/Container';
+import Navbar from '../components/navbar/Navbar';
+import Projects from '../components/Projects';
+import LandingBlogCard from '../components/LandingBlogCard';
+import { motion } from 'motion/react';
+import Footer from '../components/footer/Footer';
+import SectionHeading from '../components/SectionHeading';
+import Testimonial from '../components/Testimonial';
+import Scale from '../components/Scale';
 
 const Page = () => {
   return (
-    <div className="min-h-screen flex items-start justify-center ">
-      <Container className={'min-h-screen p-4 md:pb-10 md:pt-20  '}>
-        <h1 className='text-2xl md:text-4xl font-bold tracking-tight text-primary' >Deepak Kumar</h1>
-        <p className=' text-secondary text-sm md:text-sm pt-4 max-w-lg'>I'm Software Engineer with a passion for building scalable andd efficient systems. I'm currently working as a Software Enigneer at Google</p>
-        <Projects/>
-        <LandingBlogCard/>
+    <div className=" ">
+      <Container className={'relative min-h-screen md:pt-20'}>
+        <Scale />
+        <motion.h1
+          initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
+          whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="text-primary px-12 pt-8 text-2xl font-bold tracking-tight md:text-4xl"
+        >
+          Deepak Kumar
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
+          whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.2 }}
+          className="text-secondary max-w-lg px-12 py-4 text-sm md:text-sm"
+        >
+          I'm Software Engineer with a passion for building scalable andd efficient systems. I'm
+          currently working as a Software Enigneer at Google
+        </motion.p>
+
+        <Projects limit={3} />
+        <LandingBlogCard limit={3} />
+        <Testimonial />
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

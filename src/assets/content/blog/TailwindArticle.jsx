@@ -1,195 +1,132 @@
-import React from 'react'
+import React from 'react';
+import Container from '../../../components/Container';
+import { motion } from 'motion/react';
+import Image from '../../images/tailwind-css-logo.png';
+import Scale from '../../../components/Scale';
 
-export const meta = {
-  title: 'Mastering Tailwind CSS: A Modern Approach to Styling Web Applications',
-  date: '2025-12-19',
-  author: 'Deepak Kumar',
-}
-
-export default function TailwindArticle() {
+const TailwindArticle = () => {
   return (
-    <div className=" max-w-3xl mx-auto px-4 py-8">
-      <h1>Mastering Tailwind CSS: A Modern Approach to Styling Web Applications</h1>
+    <Container className={'relative min-h-screen p-10 md:pt-20 md:pb-10'}>
+      <Scale />
+      <motion.div
+        initial={{ opacity: 0, filter: 'blur(10px)', y: 0 }}
+        animate={{ opacity: 1, filter: 'blur(0px)', y: 10 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className="px-4 md:py-30"
+      >
+        <motion.div
+          initial={{ filter: 'blur(0px)' }}
+          whileHover={{ filter: 'blur(2px)' }}
+          transition={{ duration: 0.3 }}
+          className="mx-4 mb-6"
+        >
+          <div className="mx-4 mb-6">
+            <motion.img
+              initial={{ filter: 'blur(0px)' }}
+              whileHover={{ filter: 'blur(2px)' }}
+              transition={{ duration: 0.3 }}
+              src={Image}
+              alt="Tailwind CCS Logo"
+              className="mx-auto h-20 max-w-full scale-150"
+            />
+          </div>
+        </motion.div>
 
-      <p>
-        In the world of web development, CSS frameworks have been pivotal in helping
-        developers create responsive, modern, and visually appealing websites
-        efficiently. Tailwind CSS is one such framework that has gained immense
-        popularity due to its utility-first approach, making it a game-changer
-        for frontend developers. In this article, well explore what Tailwind
-        CSS is, why it’s so widely used, its key features, advantages, and how
-        you can integrate it into your projects, including using it in a
-        <strong> React + Vite </strong> setup with <strong>MDX</strong> for blogs
-        or documentation.
-      </p>
+        {/* Main Heading */}
+        <h1 className="text-primary text-2xl font-bold tracking-tight md:text-4xl">
+          Mastering Tailwind CSS: A Modern Approach to Styling Web Applications
+        </h1>
 
-      <h2>What is Tailwind CSS?</h2>
-      <p>
-        Tailwind CSS is a <strong>utility-first CSS framework</strong> that allows
-        developers to design websites directly in the markup using small,
-        reusable utility classes. Unlike traditional CSS frameworks like
-        Bootstrap or Foundation, Tailwind does not come with pre-designed
-        components. Instead, it provides low-level utility classes for
-        controlling things like padding, margin, colors, font sizes, flexbox,
-        grid, and more.
-      </p>
+        <p className="text-secondary pt-4 text-sm">
+          In the rapidly evolving world of web development, building clean, responsive, and scalable
+          user interfaces has become more important than ever.
+        </p>
 
-      <h2>Why Tailwind? — The big picture 🎯</h2>
-      <ul>
-        <li>
-          <strong>Utility-first</strong>: compose UI from atomic utilities like
-          <span>p-4</span>, <span>flex</span>, and <span>text-sm</span>.
-        </li>
-        <li>
-          <strong>Colocation</strong>: styles live with markup (e.g., the
-          component <span>className</span>), making components easier to
-          understand and maintain.
-        </li>
-        <li>
-          <strong>Configurable design system</strong>: <span>tailwind.config.js</span>
-          provides a single source of truth for tokens (colors, spacing,
-          breakpoints).
-        </li>
-        <li>
-          <strong>Tooling synergy</strong>: pairs well with Vite, PostCSS and
-          Prettier; production builds remove unused styles via the
-          <span>content</span>/purge step.
-        </li>
-      </ul>
+        <p className="text-secondary pt-4 text-sm">
+          This is where <strong>Tailwind CSS</strong> has emerged as a game-changer. Rather than
+          being a traditional component-based CSS framework, Tailwind introduces a utility-first
+          approach.
+        </p>
 
-      <h2>Key Concepts & Workflow 🔧</h2>
+        {/* Section Heading */}
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          What Is Tailwind CSS?
+        </h2>
 
-      <h3>1. Install & Setup (Vite + PostCSS example)</h3>
-      <p>Add packages: <span>tailwindcss</span>, <span>postcss</span>, <span>autoprefixer</span>.</p>
+        <p className="text-secondary pt-4 text-sm">
+          Tailwind CSS is a <strong>utility-first CSS framework</strong> that provides low-level
+          utility classes like
+          <code className="px-1">p-4</code>,<code className="px-1">text-center</code>, and
+          <code className="px-1">bg-blue-500</code>.
+        </p>
 
-      <p>Create <span>tailwind.config.js</span> and include template paths:</p>
-      <pre>
-        <span className="language-js"></span>
-      </pre>
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          The Utility-First Philosophy
+        </h2>
 
-      <p>Include directives in your main CSS (e.g., <span>src/index.css</span>):</p>
-      <pre>
-        <span className="language-css"></span>
-      </pre>
+        <p className="text-secondary pt-4 text-sm">
+          Instead of abstracting styles into reusable class names, Tailwind encourages building
+          designs directly in your markup.
+        </p>
 
-      <p>
-        In this repo, <span>@tailwindcss/vite</span> and
-        <span>prettier-plugin-tailwindcss</span> are present in <span>package.json</span>,
-        indicating Vite integration and automated class sorting.
-      </p>
+        <ul className="text-secondary list-disc pt-4 pl-5 text-sm">
+          <li>No context switching between HTML and CSS</li>
+          <li>Predictable styles without specificity issues</li>
+          <li>Faster prototyping and iteration</li>
+          <li>Easier refactoring</li>
+        </ul>
 
-      <h3>2. Development & Build Commands (used here)</h3>
-      <ul>
-        <li><span>npm run dev</span> — starts Vite dev server (HMR + JIT Tailwind updates).</li>
-        <li><span>npm run build</span> — produces production assets via Vite.</li>
-        <li><span>npm run preview</span> — serves the built site locally to inspect production output.</li>
-      </ul>
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          Responsive Design Made Simple
+        </h2>
 
-      <h3>3.Production optimizations</h3>
-      <ul>
-        <li>Tailwind prunes unused styles using the <span>content</span> globs; keep them precise for best build performance.</li>
-        <li>Use a <span>safelist</span> in <span>tailwind.config.js</span> when classes are generated dynamically at runtime.</li>
-      </ul>
+        <p className="text-secondary pt-4 text-sm">
+          Tailwind provides responsive utilities using breakpoint prefixes such as
+          <code className="px-1">sm:</code>,<code className="px-1">md:</code>,
+          <code className="px-1">lg:</code>.
+        </p>
 
-      <h2>Patterns Observed in This Repository (Concrete) 🔍</h2>
-      <p>
-        <strong>Component composition</strong>: <span>src/components/Container.jsx</span>
-        exposes a <span>className</span> prop and uses <span>clsx</span> to merge
-        base and custom classes — a lightweight pattern to create layout
-        primitives.
-      </p>
-      <pre>
-        <span className=''></span>
-      </pre>
+        <pre className="text-secondary overflow-x-auto rounded-lg bg-neutral-100 p-4 pt-4 text-sm dark:bg-neutral-800">
+          <code>{`<div class="p-4 md:p-8 lg:p-12">
+  Responsive Padding
+</div>`}</code>
+        </pre>
 
-      <p>
-        <strong>Dark mode conventions</strong>: several files use
-        <span>dark:</span> variants such as <span>bg-neutral-100 dark:bg-neutral-700</span>
-        and <span>dark:bg-black</span>. The project should use
-        <span>darkMode: 'class'</span> if toggling dark mode via JS.
-      </p>
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          Performance and Optimization
+        </h2>
 
-      <p>
-        <strong>Responsive utilities</strong>: <span>src/page/Page.jsx</span>
-        uses <span>text-2xl md:text-4xl</span> to define responsive typography.
-      </p>
+        <p className="text-secondary pt-4 text-sm">
+          Tailwind’s JIT compiler generates only the CSS your application uses, resulting in
+          extremely small production builds.
+        </p>
 
-      <p>
-        <strong>Animations + motion</strong>: <span>src/components/navbar/Navbar.jsx</span>
-        uses <span>motion</span> for transitions while tailwind utilities handle
-        layout and sizing.
-      </p>
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          Tailwind CSS with React
+        </h2>
 
-      <h2>Practical Recipes & Examples 🍳</h2>
-      <h3>Reusable button (using utilities)</h3>
-      <pre>
-        <span className=""></span>
-      </pre>
+        <p className="text-secondary pt-4 text-sm">
+          Tailwind works exceptionally well with React. Styling stays colocated with components.
+        </p>
 
-      <h3>Create a small utility component with <span>@apply</span></h3>
-      <pre>
-        <span className="language-css">{`/* src/index.css */
-.btn {
-  @apply bg-primary rounded-md px-4 py-2 text-white;
-}`}</span>
-      </pre>
+        <pre className="text-secondary overflow-x-auto rounded-lg bg-neutral-100 p-4 pt-4 text-sm dark:bg-neutral-800">
+          <code>{`<button className="px-4 py-2 bg-indigo-600 text-white rounded-lg
+hover:bg-indigo-700 transition">
+  Click Me
+</button>`}</code>
+        </pre>
 
-      <h2>Troubleshooting & Debugging 🐞</h2>
-      <ul>
-        <li>Missing styles: confirm <span>content</span> paths in <span>tailwind.config.js</span> include the file type and location (e.g., <span>./src/**/*.{js,jsx,mdx}</span>).</li>
-        <li>Conflicting utilities: use <span>twMerge</span> when conditional logic may lead to contradictory utilities.</li>
-        <li>Inspect runtime CSS with browser devtools to see computed styles, especially when animations or motion libraries alter layout.</li>
-        <li>Prettier reorders classes: <span>prettier-plugin-tailwindcss</span> may re-order classes during formatting — this consistency is intentional.</li>
-      </ul>
+        <h2 className="text-primary pt-10 text-2xl font-bold tracking-tight md:text-4xl">
+          Conclusion
+        </h2>
 
-      <h2>Advanced Tips & Conventions ✅</h2>
-      <ul>
-        <li>Design tokens in config: keep colors, spacing, and tokens in <span>tailwind.config.js</span> under <span>theme.extend</span>.</li>
-        <li>Extract repeats with <span>@apply</span>: when a utility cluster repeats across components, extract it to a CSS class using <span>@apply</span>.</li>
-        <li>Keep <span>content</span> globs tight to speed up CI and builds.</li>
-        <li>Use community plugins such as <span>@tailwindcss/forms</span> and <span>@tailwindcss/typography</span> for solid base styles.</li>
-      </ul>
+        <p className="text-secondary pt-4 text-sm">
+          Mastering Tailwind CSS means embracing a modern, scalable approach to styling web
+          applications.
+        </p>
+      </motion.div>
+    </Container>
+  );
+};
 
-      <h2>Example <span>tailwind.config.js</span> for this project</h2>
-      <pre>
-        <span className="language-js">{`module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx,mdx}'],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        primary: '#0ea5e9',
-        secondary: '#94a3b8',
-      },
-    },
-  },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-};`}</span>
-      </pre>
-
-      <h2>Quick Checklist for Contributors ✔️</h2>
-      <ul>
-        <li>Run <span>npm run dev</span> to iterate locally with Tailwind JIT and Vite.</li>
-        <li>Keep <span>tailwind.config.js</span> <span>content</span> globs up to date, including <span>.mdx</span> for blog content.</li>
-        <li>Use <span>clsx</span> for conditional classes and consider <span>tailwind-merge</span> for resolving conflicts.</li>
-        <li>Let <span>prettier-plugin-tailwindcss</span> manage class order; add it to CI if not already.</li>
-      </ul>
-
-      <h2>Final notes & next steps 💡</h2>
-      <p>
-        Tailwind encourages thinking in utilities and tokens; this repository already
-        shows many Tailwind-friendly idioms (colocated classes, <span>clsx</span>,
-        dark-mode variants, and Prettier integration). If you'd like, I can:
-      </p>
-      <ul>
-        <li>Add the example <span>tailwind.config.js</span> file to the repo</li>
-        <li>Create a <span>.btn</span> utility using <span>@apply</span> in <span>src/index.css</span></li>
-        <li>Update <span>README.md</span> with Tailwind-specific setup steps</li>
-      </ul>
-
-      <p>
-        Tell me which of the actions you'd prefer and I'll make the change.
-      </p>
-    </div>
-  )
-}
+export default TailwindArticle;
