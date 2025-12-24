@@ -1,9 +1,9 @@
 import React from 'react';
 import Container from '../components/Container';
 import Projects from '../components/Projects';
-import Cards from '../components/Cards';
+
 import { motion } from 'motion/react';
-import SectionHeading from '../components/SectionHeading';
+
 import Scale from '../components/Scale';
 
 const Project = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from '../components/Container';
-import Navbar from '../components/navbar/Navbar';
+
 import Projects from '../components/Projects';
 import LandingBlogCard from '../components/LandingBlogCard';
 import { motion } from 'motion/react';
-import Footer from '../components/footer/Footer';
-import SectionHeading from '../components/SectionHeading';
+
+
 import Testimonial from '../components/Testimonial';
 import Scale from '../components/Scale';
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import Container from '../components/Container';
-import Navbar from '../components/navbar/Navbar';
-import Projects from '../components/Projects';
+
 import LandingBlogCard from '../components/LandingBlogCard';
 import { motion } from 'motion/react';
-import Footer from '../components/footer/Footer';
+
 import ContactForm from '../components/ContactForm';
 import Scale from '../components/Scale';
 

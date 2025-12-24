@@ -3,7 +3,7 @@ import Container from '../Container';
 import Avatar from '../../assets/images/profile.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
-import Page from '../../page/Page';
+
 
 const Navbar = () => {
   const navItems = [

@@ -1,5 +1,4 @@
 import React from 'react';
-import TailwindArticle from '../assets/content/blog/TailwindArticle';
 import Container from '../components/Container';
 import LandingBlogCard from '../components/LandingBlogCard';
 import { motion } from 'motion/react';
