@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Container from '../container';
+import Container from '../Container';
 import Avatar from '../../assets/images/profile.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
@@ -14,14 +14,14 @@ const Navbar = () => {
   ];
 
   const [hovered, setHovered] = useState(null);
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
   const { scrollY } = useScroll();
 
-  const openHomePage=  ()=>{
-    navigate('/')
-  }
+  const openHomePage = () => {
+    navigate('/');
+  };
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (latest > 20) {
@@ -34,17 +34,20 @@ const Navbar = () => {
   return (
     <Container className={''}>
       <motion.nav
-        style={{ borderRadius: scrolled ? '100px' : '0px', padding:scrolled?' 8px 12px':'8px 12px ' }}
+        style={{
+          borderRadius: scrolled ? '100px' : '0px',
+          padding: scrolled ? ' 8px 12px' : '8px 12px ',
+        }}
         animate={{
           boxShadow: scrolled ? 'var(--shadow-own)' : 'none',
           width: scrolled ? '56rem' : '68rem',
           y: scrolled ? 10 : 0,
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed inset-x-0 top-0 mx-auto flex items-center z-10 justify-between  bg-white/90   "
+        className="fixed inset-x-0 top-0 z-10 mx-auto flex items-center justify-between bg-white/90"
       >
-        <img 
-        onClick={openHomePage}
+        <img
+          onClick={openHomePage}
           className="h-10 w-10 rounded-full bg-neutral-700 px-1"
           src={Avatar}
           alt="Profile Avatar"
