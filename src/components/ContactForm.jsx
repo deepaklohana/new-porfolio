@@ -39,7 +39,8 @@ const ContactForm = () => {
     });
   };
   return (
-    <form onSubmit={handleSubmit} className="mx-auto flex max-w-lg flex-col gap-5 py-10">
+    <form onSubmit={handleSubmit} className=" py-12 mx-8  border-y mt-10 border-neutral-100 shadow-section-inset">
+      <div className='mx-auto w-lg flex max-w-xl flex-col gap-5'>
       <div className="flex flex-col gap-2">
         <label className="text-sm font-medium tracking-tight text-neutral-600" htmlFor="name">
           Full Name
@@ -53,6 +54,7 @@ const ContactForm = () => {
           className="shadow-own focus:ring-primary rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
         />
       </div>
+      
 
       <div className="flex flex-col gap-2">
         <label className="text-sm font-medium tracking-tight text-neutral-600" htmlFor="email">
@@ -84,6 +86,7 @@ const ContactForm = () => {
       <button className="bg-primary rounded-md px-4 py-2 text-white" type="submit">
         Send Message
       </button>
+      </div>
     </form>
   );
 };
